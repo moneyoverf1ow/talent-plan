@@ -90,6 +90,11 @@ func testURLTop(t *testing.T, rounds RoundsArgs) {
 			} else {
 				fmt.Printf("Case%d PASS, dataSize=%v, nMapFiles=%v, cost=%v\n", i, dataSize[k], nMapFiles[k], cost)
 			}
+
+			// disk space is too small >_<
+			if err := os.RemoveAll(dataDir); err != nil {
+				log.Fatal(err)
+			}
 		}
 	}
 }
